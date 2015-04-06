@@ -16,6 +16,13 @@
 		5DC46AE91AD2E0D3002C48BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DC46AE81AD2E0D3002C48BA /* Images.xcassets */; };
 		5DC46AEC1AD2E0D3002C48BA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DC46AEA1AD2E0D3002C48BA /* LaunchScreen.xib */; };
 		5DC46AF81AD2E0D3002C48BA /* TanksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC46AF71AD2E0D3002C48BA /* TanksTests.m */; };
+		5DC46B0D1AD2E261002C48BA /* panzer.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DC46B071AD2E261002C48BA /* panzer.png */; };
+		5DC46B0E1AD2E261002C48BA /* area.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DC46B081AD2E261002C48BA /* area.png */; };
+		5DC46B0F1AD2E261002C48BA /* knob.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DC46B091AD2E261002C48BA /* knob.png */; };
+		5DC46B101AD2E261002C48BA /* track.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DC46B0A1AD2E261002C48BA /* track.png */; };
+		5DC46B111AD2E261002C48BA /* panzer_track.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DC46B0B1AD2E261002C48BA /* panzer_track.png */; };
+		5DC46B121AD2E261002C48BA /* panzer_body.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DC46B0C1AD2E261002C48BA /* panzer_body.png */; };
+		5DC46B151AD2E341002C48BA /* SliderArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC46B141AD2E341002C48BA /* SliderArea.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +52,14 @@
 		5DC46AF11AD2E0D3002C48BA /* TanksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TanksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC46AF61AD2E0D3002C48BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DC46AF71AD2E0D3002C48BA /* TanksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TanksTests.m; sourceTree = "<group>"; };
+		5DC46B071AD2E261002C48BA /* panzer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panzer.png; sourceTree = "<group>"; };
+		5DC46B081AD2E261002C48BA /* area.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = area.png; sourceTree = "<group>"; };
+		5DC46B091AD2E261002C48BA /* knob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = knob.png; sourceTree = "<group>"; };
+		5DC46B0A1AD2E261002C48BA /* track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = track.png; sourceTree = "<group>"; };
+		5DC46B0B1AD2E261002C48BA /* panzer_track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panzer_track.png; sourceTree = "<group>"; };
+		5DC46B0C1AD2E261002C48BA /* panzer_body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panzer_body.png; sourceTree = "<group>"; };
+		5DC46B131AD2E341002C48BA /* SliderArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderArea.h; sourceTree = "<group>"; };
+		5DC46B141AD2E341002C48BA /* SliderArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SliderArea.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +103,8 @@
 			children = (
 				5DC46ADA1AD2E0D3002C48BA /* AppDelegate.h */,
 				5DC46ADB1AD2E0D3002C48BA /* AppDelegate.m */,
+				5DC46B131AD2E341002C48BA /* SliderArea.h */,
+				5DC46B141AD2E341002C48BA /* SliderArea.m */,
 				5DC46ADD1AD2E0D3002C48BA /* GameScene.h */,
 				5DC46ADE1AD2E0D3002C48BA /* GameScene.m */,
 				5DC46AE01AD2E0D3002C48BA /* GameScene.sks */,
@@ -104,6 +121,12 @@
 		5DC46AD61AD2E0D3002C48BA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5DC46B071AD2E261002C48BA /* panzer.png */,
+				5DC46B081AD2E261002C48BA /* area.png */,
+				5DC46B091AD2E261002C48BA /* knob.png */,
+				5DC46B0A1AD2E261002C48BA /* track.png */,
+				5DC46B0B1AD2E261002C48BA /* panzer_track.png */,
+				5DC46B0C1AD2E261002C48BA /* panzer_body.png */,
 				5DC46AD71AD2E0D3002C48BA /* Info.plist */,
 				5DC46AD81AD2E0D3002C48BA /* main.m */,
 			);
@@ -207,7 +230,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DC46B0D1AD2E261002C48BA /* panzer.png in Resources */,
+				5DC46B101AD2E261002C48BA /* track.png in Resources */,
 				5DC46AEC1AD2E0D3002C48BA /* LaunchScreen.xib in Resources */,
+				5DC46B111AD2E261002C48BA /* panzer_track.png in Resources */,
+				5DC46B0F1AD2E261002C48BA /* knob.png in Resources */,
+				5DC46B121AD2E261002C48BA /* panzer_body.png in Resources */,
+				5DC46B0E1AD2E261002C48BA /* area.png in Resources */,
 				5DC46AE91AD2E0D3002C48BA /* Images.xcassets in Resources */,
 				5DC46AE11AD2E0D3002C48BA /* GameScene.sks in Resources */,
 				5DC46AE71AD2E0D3002C48BA /* Main.storyboard in Resources */,
@@ -232,6 +261,7 @@
 				5DC46ADC1AD2E0D3002C48BA /* AppDelegate.m in Sources */,
 				5DC46ADF1AD2E0D3002C48BA /* GameScene.m in Sources */,
 				5DC46AD91AD2E0D3002C48BA /* main.m in Sources */,
+				5DC46B151AD2E341002C48BA /* SliderArea.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

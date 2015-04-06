@@ -7,7 +7,12 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "SliderArea.h"
 
-@interface GameScene : SKScene
+@interface GameScene : SKScene {
+    SKShapeNode *leftWheel;
+    SKShapeNode *rightWheel;
+    SliderArea *_sliderLeft;
+}
 
 @end
