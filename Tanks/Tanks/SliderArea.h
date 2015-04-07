@@ -8,6 +8,14 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface SliderArea : SKSpriteNode
+@class SliderArea;
+@protocol SliderAreaDelegate <NSObject>
+- (void)updateSliderArea:(SliderArea *)area withPower:(CGFloat)power;
+@end
 
+@interface SliderArea : SKSpriteNode {
+    CGFloat power;
+}
+@property (nonatomic, assign) NSUInteger tag;
+@property (nonatomic, weak) id<SliderAreaDelegate> delegate;
 @end

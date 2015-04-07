@@ -9,10 +9,14 @@
 #import <SpriteKit/SpriteKit.h>
 #import "SliderArea.h"
 
-@interface GameScene : SKScene {
-    SKShapeNode *leftWheel;
-    SKShapeNode *rightWheel;
+@interface GameScene : SKScene<SliderAreaDelegate> {
+    SKSpriteNode *leftWheel;
+    SKSpriteNode *rightWheel;
     SliderArea *_sliderLeft;
+    SliderArea *_sliderRight;
+    
+    CGFloat rightPower;
+    CGFloat leftPower;
 }
 
 @end

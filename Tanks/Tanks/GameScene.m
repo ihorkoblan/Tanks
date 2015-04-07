@@ -25,34 +25,29 @@ typedef NS_OPTIONS(uint32_t, CNPhysicsCategory)
     
     [self performSelector:@selector(createCarOnScene:) withObject:self afterDelay:0.5];
     
-    _sliderLeft = [[SliderArea alloc] initWithImageNamed:@"track.png"];
-    _sliderLeft.position = CGPointMake(200.f, 200.0f);
+    _sliderLeft = [[SliderArea alloc] initWithColor:[UIColor redColor] size:CGSizeMake(150.0f, self.size.height)];
+    _sliderLeft.position = CGPointMake(75.0f, _sliderLeft.size.height / 2.0f);
+    _sliderLeft.userInteractionEnabled = YES;
+    _sliderLeft.tag = 1;
+    _sliderLeft.delegate = self;
     [self addChild:_sliderLeft];
-}
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    /* Called when a touch begins */
     
-    [leftWheel.physicsBody setDynamic:YES];
-    [rightWheel.physicsBody applyForce:CGVectorMake(0.0, 15.0)];
+    _sliderRight = [[SliderArea alloc] initWithColor:[UIColor redColor] size:CGSizeMake(150.0f, self.size.height)];
+    _sliderRight.position = CGPointMake(self.size.width - 75.0f, _sliderRight.size.height / 2.0f);
+    _sliderRight.userInteractionEnabled = YES;
+    _sliderRight.tag = 2;
+    _sliderRight.delegate = self;
+    [self addChild:_sliderRight];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
-    /* Called before each frame is rendered */
+
+    NSLog(@"left  power: %f",leftPower);
+    NSLog(@"right power: %f",rightPower);
+    [rightWheel.physicsBody applyForce:CGVectorMake(0.0, 3.0 * rightPower)];
 }
 
-- (SKShapeNode*) makeWheel
-{
-    SKShapeNode *wheel = [[SKShapeNode alloc] init];
-    CGMutablePathRef myPath = CGPathCreateMutable();
-    CGPathAddArc(myPath, NULL, 0,0, 16, 0, M_PI*2, YES);
-    wheel.path = myPath;
-    return wheel;
-}
-
-
-- (void)createCarOnScene:(SKScene*)scene
-{
+- (void)createCarOnScene:(SKScene*)scene {
     // 1. car body
     SKSpriteNode *carBody = [SKSpriteNode spriteNodeWithImageNamed:@"panzer_body.png"];
     carBody.position = CGPointMake(400, 200);
@@ -60,22 +55,34 @@ typedef NS_OPTIONS(uint32_t, CNPhysicsCategory)
     [scene addChild:carBody];
     
     // 2. wheels
-    leftWheel = [self makeWheel];
+    leftWheel = [SKSpriteNode spriteNodeWithImageNamed:@"panzer_track.png"];
     leftWheel.position = CGPointMake(carBody.position.x - carBody.size.width / 2, carBody.position.y);
-    leftWheel.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:16];
+    leftWheel.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:leftWheel.size];
+    
     [scene addChild:leftWheel];
     
-    rightWheel = [self makeWheel];
+    rightWheel = [SKSpriteNode spriteNodeWithImageNamed:@"panzer_track.png"];
     rightWheel.position = CGPointMake(carBody.position.x + carBody.size.width / 2, carBody.position.y);
-    rightWheel.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:16];
+    rightWheel.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:rightWheel.size];
     [scene addChild:rightWheel];
     
     // 3. Join wheels to car
+    
     [scene.physicsWorld addJoint:[SKPhysicsJointPin jointWithBodyA:carBody.physicsBody bodyB:leftWheel.physicsBody anchor:leftWheel.position]];
+    [scene.physicsWorld addJoint:[SKPhysicsJointPin jointWithBodyA:carBody.physicsBody bodyB:leftWheel.physicsBody anchor:CGPointMake(leftWheel.position.x, leftWheel.position.y+2)]];
+    
     [scene.physicsWorld addJoint:[SKPhysicsJointPin jointWithBodyA:carBody.physicsBody bodyB:rightWheel.physicsBody anchor:rightWheel.position]];
+    [scene.physicsWorld addJoint:[SKPhysicsJointPin jointWithBodyA:carBody.physicsBody bodyB:rightWheel.physicsBody anchor:CGPointMake(rightWheel.position.x, rightWheel.position.y+2)]];
     
-    // 4. drive car
-    
+
+}
+
+- (void)updateSliderArea:(SliderArea *)area withPower:(CGFloat)power {
+    if (area.tag == 1) {
+        leftPower = power;
+    } else if (area.tag == 2) {
+        rightPower = power;
+    }
 }
 
 @end
